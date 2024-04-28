@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                         labelText: "Password",
                         hintText: "Write Strong password"),
                     TextButton(
-                        onPressed: () =>goToForgetPage(),
+                        onPressed: () => goToForgetPage(),
                         child: Text(
                           'Forgot password?',
                           textAlign: TextAlign.end,
@@ -156,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                       color: Color(0xFF9775FA),
                       borderRadius: BorderRadius.all(Radius.circular(15))),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () =>goNavigationPage(),
                     child: Center(
                       child: Text(
                         'Login',
@@ -175,6 +175,10 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         )));
+  }
+
+  goNavigationPage() {
+    Get.toNamed(AppRoute.screeneight);
   }
 
   goToForgetPage() {

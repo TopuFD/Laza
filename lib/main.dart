@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: AppRoute.initialscreen,
           defaultTransition: Transition.native,
-          locale: Locale('pt', 'BR'),
+          locale: const Locale('pt', 'BR'),
           getPages: AppRoute.pages,
         );
       },

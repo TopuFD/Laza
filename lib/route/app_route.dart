@@ -1,3 +1,5 @@
+import 'package:e_commerce/view/screen_eight/binding/screeneight_binding.dart';
+import 'package:e_commerce/view/screen_eight/navigation_page.dart';
 import 'package:e_commerce/view/screen_five/binding/screenfive_binding.dart';
 import 'package:e_commerce/view/screen_five/forget_page.dart';
 import 'package:e_commerce/view/screen_four/binding/screenfour_binding.dart';
@@ -25,6 +27,7 @@ class AppRoute {
   static const String screenfive = "/forget_page";
   static const String screensix = "/code_verify_page";
   static const String screenseven = "/newpass_page";
+  static const String screeneight = "/navigation_page";
 
   // pages list
   static List<GetPage> pages = [
@@ -60,5 +63,9 @@ class AppRoute {
         name: screenseven,
         page: () => SetNewPassword(),
         binding: ScreenSevenBinding()),
+    GetPage(
+        name: screeneight,
+        page: () => const NavigationPage(),
+        binding: ScreeneightBinding()),
   ];
 }
