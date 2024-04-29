@@ -25,7 +25,7 @@ class _NavigationPageState extends State<NavigationPage> {
     return Scaffold(
     
       bottomNavigationBar: BottomNavigationBar(
-        fixedColor: Color(0xFF9775FA),
+        fixedColor: const Color(0xFF9775FA),
         unselectedItemColor: Colors.black,
           currentIndex: _currentIndex,
           onTap: (value) {

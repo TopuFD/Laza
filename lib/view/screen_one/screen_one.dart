@@ -1,12 +1,14 @@
 import 'package:e_commerce/route/app_route.dart';
 import 'package:e_commerce/widgets/button_pageone.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ScreenOne extends StatelessWidget {
   const ScreenOne({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -21,21 +23,20 @@ class ScreenOne extends StatelessWidget {
             children: [
               Image.asset(
                 "images/onbimage.png",
-                height: 823,
-                width: 373,
+                height: mq.height,
+                width: mq.width,
                 fit: BoxFit.cover,
               ),
               Positioned(
                 bottom: 0,
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 17, horizontal: 15),
+                  padding: EdgeInsets.symmetric(vertical: mq.height * .02, horizontal: mq.width * .04),
                   width: MediaQuery.of(context).size.width,
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFffffff),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFffffff),
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(150),
-                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(150.r),
+                      topLeft: Radius.circular(15.r),
                     ),
                   ),
                   child: Column(
@@ -43,36 +44,36 @@ class ScreenOne extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         "Look Good Feel",
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 30.sp,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF1D1E20),
+                          color: const Color(0xFF1D1E20),
                         ),
                       ),
-                      const Text(
+                      Text(
                         "Create your individual & unique style and look amazing everyday.",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.normal,
-                          color: Color(0xFF8F959E),
+                          color: const Color(0xFF8F959E),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: mq.height * .05,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          GestureDetector(
+                          InkWell(
                               onTap: () {
                                 ontapWomen();
                               },
                               child: CustomButton(
                                 text: "Men",
                               )),
-                          GestureDetector(
+                          InkWell(
                               onTap: () {
                                 ontapWomen();
                               },
@@ -82,19 +83,19 @@ class ScreenOne extends StatelessWidget {
                               ))),
                         ],
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: mq.height * .01,
                       ),
                       Center(
                           child: TextButton(
                               onPressed: () {
                                 ontapWomen();
                               },
-                              child: const Text(
+                              child: Text(
                                 "Skip",
                                 style: TextStyle(
-                                  color: Color(0xFF8F959E),
-                                  fontSize: 17,
+                                  color: const Color(0xFF8F959E),
+                                  fontSize: 17.sp,
                                   fontFamily: 'Inter',
                                   fontWeight: FontWeight.w500,
                                   height: 0.06,

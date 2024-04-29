@@ -14,16 +14,18 @@ class CodeVerification extends StatefulWidget {
 class _CodeVerificationState extends State<CodeVerification> {
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        padding: EdgeInsets.symmetric(
+            horizontal: mq.width * .05, vertical: mq.height * .01),
         child: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(
-                height: 20.h,
+                height: mq.height * .08,
               ),
               Text(
                 'Verification Code',
@@ -37,7 +39,9 @@ class _CodeVerificationState extends State<CodeVerification> {
                 ),
               ),
               Image.asset("images/forgetimage.png"),
-              SizedBox(height: 15.h,),
+              SizedBox(
+                height: mq.height * .01,
+              ),
               SizedBox(
                 child: PinCodeTextField(
                   length: 4,
@@ -46,14 +50,13 @@ class _CodeVerificationState extends State<CodeVerification> {
                   pinTheme: PinTheme(
                     inactiveColor: const Color.fromARGB(66, 73, 73, 73),
                     inactiveFillColor: Colors.white,
-                
                     shape: PinCodeFieldShape.box,
                     borderRadius: BorderRadius.circular(5),
-                    fieldHeight: 80.h,
-                    fieldWidth: 65.w,
+                    fieldHeight: mq.height * .1,
+                    fieldWidth: mq.width * .2,
                     activeFillColor: Colors.white,
                   ),
-                  animationDuration:const Duration(milliseconds: 300),
+                  animationDuration: const Duration(milliseconds: 300),
                   enableActiveFill: true,
                   // controller: textEditingController,
                   // onCompleted: (v) {
@@ -70,7 +73,7 @@ class _CodeVerificationState extends State<CodeVerification> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * .2,
+                height: mq.height * .2,
               ),
               Text.rich(
                 TextSpan(
@@ -99,11 +102,11 @@ class _CodeVerificationState extends State<CodeVerification> {
                 ),
               ),
               SizedBox(
-                height: 10.h,
+                height: mq.height * .02,
               ),
               Container(
-                width: 375.w,
-                height: 75.h,
+                width: mq.width,
+                height: mq.height * .1,
                 decoration: const BoxDecoration(
                     color: Color(0xFF9775FA),
                     borderRadius: BorderRadius.all(Radius.circular(15))),

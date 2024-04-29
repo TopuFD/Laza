@@ -11,15 +11,16 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return Container(
-      height: 60,
-      width: 151,
+      height: mq.height * .09,
+      width: mq.width * .4,
       padding: const EdgeInsets.all(10),
       decoration: ShapeDecoration(
         color: const Color(0xFF9775FA),
         shadows: [
           BoxShadow(
-            color: Color(0xFFB0A3E5),
+            color: const Color(0xFFB0A3E5),
             blurRadius: 8.1.w,
             blurStyle: BlurStyle.solid,
             offset:const Offset(1, 3)

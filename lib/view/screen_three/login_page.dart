@@ -20,46 +20,47 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
         ),
         body: SafeArea(
             child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          padding: EdgeInsets.symmetric(horizontal: mq.width * .05),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 20.h,
+                  height: mq.height * .08,
                 ),
                 Text(
                   'Welcome',
                   style: TextStyle(
-                    color: Color(0xFF1D1E20),
+                    color: const Color(0xFF1D1E20),
                     fontSize: 28.sp,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
-                    height: 0.04,
+                    height: mq.height * .001,
                     letterSpacing: -0.21,
                   ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: mq.height * .02,
                 ),
                 Text(
                   'Please enter your data to continue',
                   style: TextStyle(
-                    color: Color(0xFF8F959E),
+                    color: const Color(0xFF8F959E),
                     fontSize: 15.sp,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w400,
-                    height: 0.07,
+                    height: mq.height * .0001,
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .2,
+                  height: mq.height * .1,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -69,32 +70,34 @@ class _LoginPageState extends State<LoginPage> {
                         labelText: "Email",
                         hintText: "Write user Email"),
                     SizedBox(
-                      height: 15.h,
+                      height: mq.height * .03,
                     ),
                     MyForm(
                         controller: passController,
                         labelText: "Password",
                         hintText: "Write Strong password"),
-                    TextButton(
-                        onPressed: () => goToForgetPage(),
+                    SizedBox(height: mq.height * .03,),
+                    InkWell(
+                        onTap: () => goToForgetPage(),
                         child: Text(
                           'Forgot password?',
                           textAlign: TextAlign.end,
                           style: TextStyle(
-                            color: Color(0xFFEA4335),
+                            color: const Color(0xFFEA4335),
                             fontSize: 15.sp,
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w400,
                             height: 0.07,
                           ),
                         )),
+                      SizedBox(height: mq.height * .02,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Remember me',
                           style: TextStyle(
-                            color: Color(0xFF1D1E20),
+                            color: const Color(0xFF1D1E20),
                             fontSize: 13.sp,
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -115,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                         )
                       ],
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height * .08),
+                    SizedBox(height: mq.height * .1),
                     Text.rich(
                       TextSpan(
                         children: [
@@ -123,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                             text:
                                 'By connecting your account confirm that you agree with our ',
                             style: TextStyle(
-                              color: Color(0xFF8F959E),
+                              color: const Color(0xFF8F959E),
                               fontSize: 13.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w400,
@@ -133,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                           TextSpan(
                             text: 'Term and Condition',
                             style: TextStyle(
-                              color: Color(0xFF1D1E20),
+                              color: const Color(0xFF1D1E20),
                               fontSize: 13.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w500,
@@ -147,16 +150,16 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .02,
+                  height: mq.height * .02,
                 ),
                 Container(
-                  width: 375.w,
-                  height: 75.h,
+                  width: mq.width,
+                  height: mq.height * .1,
                   decoration: const BoxDecoration(
                       color: Color(0xFF9775FA),
                       borderRadius: BorderRadius.all(Radius.circular(15))),
                   child: InkWell(
-                    onTap: () =>goNavigationPage(),
+                    onTap: () => goNavigationPage(),
                     child: Center(
                       child: Text(
                         'Login',

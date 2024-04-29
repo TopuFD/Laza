@@ -11,18 +11,19 @@ class ForgetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
         ),
         body: SafeArea(
             child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          padding: EdgeInsets.symmetric(horizontal: mq.width * .05,vertical: mq.height * .01),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 SizedBox(
-                  height: 20.h,
+                  height: mq.height * .08,
                 ),
                 Text(
                   'Forgot Password',
@@ -37,7 +38,7 @@ class ForgetPage extends StatelessWidget {
                 ),
                 Image.asset("images/forgetimage.png"),
                 SizedBox(
-                  height: 5.h,
+                  height: mq.height * .01,
                 ),
                 SizedBox(
                   width: double.maxFinite,
@@ -54,14 +55,14 @@ class ForgetPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: mq.height * .01,
                 ),
                 MyForm(
                     controller: emailController,
                     labelText: "Email Adress",
                     hintText: "Write Your Email"),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .2,
+                  height: mq.height * .16,
                 ),
                 Text(
                   'Please write your email to receive a confirmation code to set a new password.',
@@ -75,11 +76,11 @@ class ForgetPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 10.h,
+                  height: mq.height * .015,
                 ),
                 Container(
-                  width: 375.w,
-                  height: 75.h,
+                  width: mq.width,
+                  height: mq.height * .1,
                   decoration: const BoxDecoration(
                       color: Color(0xFF9775FA),
                       borderRadius: BorderRadius.all(Radius.circular(15))),

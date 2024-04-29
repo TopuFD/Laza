@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:e_commerce/route/app_route.dart';
 import 'package:e_commerce/widgets/button_pagetwo.dart';
@@ -12,35 +11,36 @@ class ScreenTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
         ),
-        body: SafeArea(
-            child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 20.h,
-              ),
-              Text(
-                "Let’s Get Started",
-                style: TextStyle(
-                  color: const Color(0xFF1D1E20),
-                  fontSize: 28.sp,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w600,
-                  height: 0.04.h,
-                  letterSpacing: -0.21.h,
+        body: SingleChildScrollView(
+          child: SafeArea(
+              child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: mq.width * .05),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: mq.height * .08,
                 ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .2,
-              ),
-              Container(
-                child: Column(
+                Text(
+                  "Let’s Get Started",
+                  style: TextStyle(
+                    color: const Color(0xFF1D1E20),
+                    fontSize: 28.sp,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    height: 0.04.h,
+                    letterSpacing: -0.21.h,
+                  ),
+                ),
+                SizedBox(
+                  height: mq.width * .3,
+                ),
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -70,65 +70,66 @@ class ScreenTwo extends StatelessWidget {
                         buttonColor: const Color(0xFF9775FA)),
                   ],
                 ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .1,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Already have an account?',
-                    style: TextStyle(
-                      color: const Color(0xFF8F959E),
-                      fontSize: 15.sp,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0.07,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () => goLoginPage(),
-                    child: Text(
-                      'SignIn',
+                SizedBox(
+                  height: mq.width * .4,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already have an account?',
                       style: TextStyle(
                         color: const Color(0xFF8F959E),
                         fontSize: 15.sp,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
-                        height: 0.07,
                       ),
                     ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .02,
-              ),
-              Container(
-                width: 375.w,
-                height: 75.h,
-                decoration: const BoxDecoration(color: Color(0xFF9775FA),borderRadius: BorderRadius.all(Radius.circular(15))),
-                child: InkWell(
-                  onTap: () => goCreatAccount(),
-                  child: Center(
-                    child: Text(
-                      'Create an Account',
-                      style: TextStyle(
-                        color: const Color(0xFFFEFEFE),
-                        fontSize: 17.sp,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
-                        height: 0.06,
+                    SizedBox(width: mq.width * .02,),
+                    InkWell(
+                      onTap: () => goLoginPage(),
+                      child: Text(
+                          'SignIn',
+                          style: TextStyle(
+                            color: const Color(0xFF8F959E),
+                            fontSize: 15.sp,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: mq.width * .02,
+                ),
+                Container(
+                  width: mq.width,
+                  height: mq.height * .1,
+                  decoration: const BoxDecoration(
+                      color: Color(0xFF9775FA),
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                  child: InkWell(
+                    onTap: () => goCreatAccount(),
+                    child: Center(
+                      child: Text(
+                        'Create an Account',
+                        style: TextStyle(
+                          color: const Color(0xFFFEFEFE),
+                          fontSize: 17.sp,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                          height: 0.06,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              )
-            ],
-          ),
-        )));
+                )
+              ],
+            ),
+          )),
+        ));
   }
 
   goCreatAccount() {

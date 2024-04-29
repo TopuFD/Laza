@@ -18,7 +18,7 @@ class MyForm extends StatelessWidget {
       decoration: InputDecoration(
           label: Text(labelText),
           hintText: hintText,
-          border: OutlineInputBorder()),
+          border: const OutlineInputBorder()),
     );
   }
 }

@@ -9,19 +9,21 @@ class SetNewPassword extends StatelessWidget {
   final TextEditingController comPassController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
         ),
         body: SafeArea(
             child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          padding: EdgeInsets.symmetric(
+              horizontal: mq.width * .05, vertical: mq.height * .01),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 20.h,
+                  height: mq.height * .08,
                 ),
                 Text(
                   'New Password',
@@ -35,7 +37,7 @@ class SetNewPassword extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .2,
+                  height: mq.height * .2,
                 ),
                 Column(
                   children: [
@@ -52,9 +54,8 @@ class SetNewPassword extends StatelessWidget {
                         hintText: "Write comfirm password"),
                   ],
                 ),
-                
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .2,
+                  height: mq.height * .2,
                 ),
                 Text(
                   'Please write your new password.',
@@ -66,10 +67,9 @@ class SetNewPassword extends StatelessWidget {
                     height: 2,
                   ),
                 ),
-
                 Container(
-                  width: 375.w,
-                  height: 75.h,
+                  width: mq.width,
+                  height: mq.height * .1,
                   decoration: const BoxDecoration(
                       color: Color(0xFF9775FA),
                       borderRadius: BorderRadius.all(Radius.circular(15))),

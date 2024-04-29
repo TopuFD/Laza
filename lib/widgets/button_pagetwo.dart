@@ -16,29 +16,32 @@ class CustomButtonPageTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.symmetric(vertical: mq.width * .02),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(mq.height * .015),
         decoration: ShapeDecoration(
           color: const Color(0xFF9775FA),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
           ),
         ),
         child: Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.h),
+            padding: EdgeInsets.symmetric(vertical: mq.width * .01),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 icon,
-                SizedBox(width: 5.w,),
+                SizedBox(
+                  width: mq.width * .01,
+                ),
                 Text(
                   text,
-                  style:TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 17.sp,
                     fontFamily: 'SF Pro Text',

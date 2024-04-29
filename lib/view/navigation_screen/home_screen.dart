@@ -1,9 +1,7 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: EdgeInsets.symmetric(horizontal: mq.width * .05, vertical: mq.height * .01),
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -65,8 +63,8 @@ class HomePage extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(15.r)))),
                       ),
                       Positioned(
-                          top: 7.h,
-                          right: 5.w,
+                          top: mq.height * .007,
+                          right: mq.width * .02,
                           child: CircleAvatar(
                             child: IconButton(
                                 onPressed: () {},
@@ -178,6 +176,7 @@ class HomePage extends StatelessWidget {
   customApbar(context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width * .88,
+      height: MediaQuery.of(context).size.height * .5,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -209,8 +208,8 @@ class CustomTapButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: MediaQuery.of(context).size.width * .02),
-      height: MediaQuery.of(context).size.height * .06,
-      width: MediaQuery.of(context).size.height * .16,
+      height: MediaQuery.of(context).size.height * .07,
+      width: MediaQuery.of(context).size.width * .4,
       decoration: BoxDecoration(
           color: const Color(0xFFF5F6FA),
           borderRadius: BorderRadius.circular(10.r)),
@@ -223,7 +222,7 @@ class CustomTapButton extends StatelessWidget {
                   color: Color(0xFFFEFEFE),
                   borderRadius: BorderRadius.circular(10.r)),
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(MediaQuery.of(context).size.height * .01),
                 child: Image.asset(
                   imagePath,
                   height: 17.h,
