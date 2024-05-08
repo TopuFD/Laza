@@ -1,5 +1,7 @@
+import 'package:e_commerce/view/review_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({super.key});
@@ -57,8 +59,8 @@ class DetailsPage extends StatelessWidget {
                   height: 450,
                   width: MediaQuery.of(context).size.width,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 15),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -187,7 +189,7 @@ class DetailsPage extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(
-                            height: 30,
+                            height: 10,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -202,19 +204,26 @@ class DetailsPage extends StatelessWidget {
                                   height: 0.06,
                                 ),
                               ),
-                              Text(
-                                'View All',
-                                style: TextStyle(
-                                  color: const Color(0xFF8F959E),
-                                  fontSize: 13.sp,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w400,
-                                  height: 0.08,
-                                ),
-                              )
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const ReviewPage()));
+                                  },
+                                  child: Text(
+                                    'View All',
+                                    style: TextStyle(
+                                      color: const Color(0xFF8F959E),
+                                      fontSize: 13.sp,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.08,
+                                    ),
+                                  ))
                             ],
                           ),
-                          const SizedBox(height: 20,),
                           ListTile(
                             leading: const CircleAvatar(
                                 child: Icon(Icons.person_2_outlined)),
@@ -359,31 +368,37 @@ class DetailsPage extends StatelessWidget {
                           const SizedBox(
                             height: 30,
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 75,
-                            padding: const EdgeInsets.only(
-                              top: 15,
-                              left: 10,
-                              right: 10,
-                              bottom: 10,
-                            ),
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF9775FA),
-                                borderRadius: BorderRadius.circular(15.r)),
-                            child: Center(
-                              child: Text(
-                                'Add to Cart',
-                                style: TextStyle(
-                                  color: const Color(0xFFFEFEFE),
-                                  fontSize: 17.sp,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.06,
+                          ElevatedButton(
+                              style: const ButtonStyle(
+                                  shape: MaterialStatePropertyAll(
+                                      RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)))),
+                                  overlayColor: MaterialStatePropertyAll(
+                                    Color(0xFFD1C5F4),
+                                  ),
+                                  shadowColor: MaterialStatePropertyAll(
+                                    Color(0xFF57448E),
+                                  ),
+                                  backgroundColor: MaterialStatePropertyAll(
+                                    Color(0xFF9775FA),
+                                  )),
+                              onPressed: () {},
+                              child: Center(
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 30.h),
+                                  child: Text(
+                                    'Add To Cart',
+                                    style: TextStyle(
+                                      color: Color(0xFFFEFEFE),
+                                      fontSize: 17.sp,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      height: 0.06,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                          ),
+                              )),
                           const SizedBox(
                             height: 50,
                           )
