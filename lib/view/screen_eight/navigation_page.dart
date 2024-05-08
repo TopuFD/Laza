@@ -3,7 +3,6 @@ import 'package:e_commerce/view/navigation_screen/home_screen.dart';
 import 'package:e_commerce/view/navigation_screen/product_screen.dart';
 import 'package:e_commerce/view/navigation_screen/shoped_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});
@@ -35,8 +34,8 @@ class _NavigationPageState extends State<NavigationPage> {
           },
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-            BottomNavigationBarItem(icon: FaIcon(FontAwesomeIcons.heart), label: "Heart"),
-            BottomNavigationBarItem(icon: FaIcon(FontAwesomeIcons.bagShopping),label: "Bag"),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Heart"),
+            BottomNavigationBarItem(icon: Icon(Icons.shop),label: "Shop"),
             BottomNavigationBarItem(icon: Icon(Icons.wallet), label: "Wallet"),
           ]),
       body: pages[_currentIndex],

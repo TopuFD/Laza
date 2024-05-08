@@ -1,3 +1,4 @@
+import 'package:e_commerce/view/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -173,28 +174,37 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: mq.height * .03,
               ),
-              GridView.count(
-                scrollDirection: Axis.vertical,
-                mainAxisSpacing: 2,
-                crossAxisSpacing: 2,
-                shrinkWrap: true,
-                crossAxisCount: 2,
-                childAspectRatio: 0.65,
-                physics: const NeverScrollableScrollPhysics(),
-                children: List.generate(100, (index) {
-                  return InkWell(
-                    onTap: () {
-                      
-                    },
-                    child: Padding(
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const DetailsPage()));
+                },
+                child: GridView.count(
+                  scrollDirection: Axis.vertical,
+                  mainAxisSpacing: 2,
+                  crossAxisSpacing: 2,
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.65,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: List.generate(100, (index) {
+                    return Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Column(
                         children: [
-                          Image.asset(
-                            "images/product/product.png", // Ensure the image covers the entire space
+                          Container(
+                            padding: EdgeInsets.only(top: 2.h),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 232, 232, 232),
+                              borderRadius: BorderRadius.circular(10.r)
+                            ),
+                            child: Image.asset(
+                              "images/product/product.png", // Ensure the image covers the entire space
+                            ),
                           ),
                           const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 8,vertical: 5),
+                            padding: EdgeInsets.only(
+                                top: 5),
                             child: SizedBox(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,7 +216,7 @@ class HomePage extends StatelessWidget {
                                       fontSize: 11,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
-                                      height: 0.2,
+                                      height: 0.5,
                                     ),
                                   ),
                                   SizedBox(
@@ -241,9 +251,9 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  }),
+                ),
               )
             ],
           ),
